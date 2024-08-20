@@ -8,6 +8,11 @@ export default {
       fontFamily: {
         primary: ['Inter', ...defaultTheme.fontFamily.sans],
       },
+      fontSize: {
+        '5x1': '5rem',
+        '4x1': '4rem',
+        '1x1': '1rem',
+      },
       colors: {
         primary: {
           // Customize it on globals.css :root

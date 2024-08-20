@@ -1,72 +1,72 @@
 'use client';
 
-import Head from 'next/head';
 import * as React from 'react';
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+
 import '@/lib/env';
 
 import ArrowLink from '@/components/links/ArrowLink';
-import ButtonLink from '@/components/links/ButtonLink';
-import UnderlineLink from '@/components/links/UnderlineLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 
 /**
  * SVGR Support
  * Caveat: No React Props Type.
  *
- * You can override the next-env if the type is important to you
+ * Can override the next-env to change type
  * @see https://stackoverflow.com/questions/68103844/how-to-override-next-js-svg-module-declaration
  */
-import Logo from '~/svg/Logo.svg';
-
-// !STARTERCONF -> Select !STARTERCONF and CMD + SHIFT + F
-// Before you begin editing, follow all comments with `STARTERCONF`,
-// to customize the default configuration.
 
 export default function HomePage() {
+  const router = useRouter();
+
   return (
-    <main>
-      <Head>
-        <title>Hi</title>
-      </Head>
-      <section className='bg-white'>
-        <div className='layout relative flex min-h-screen flex-col items-center justify-center py-12 text-center'>
-          <Logo className='w-16' />
-          <h1 className='mt-4'>Next.js + Tailwind CSS + TypeScript Starter</h1>
-          <p className='mt-2 text-sm text-gray-800'>
-            A starter for Next.js, Tailwind CSS, and TypeScript with Absolute
-            Import, Seo, Link component, pre-configured with Husky{' '}
-          </p>
-          <p className='mt-2 text-sm text-gray-700'>
-            <ArrowLink href='https://github.com/theodorusclarence/ts-nextjs-tailwind-starter'>
-              See the repository
+    <section className='min-h-screen bg-gradient-to-b from-primary-200 to-primary-500 flex items-center justify-center px-4'>
+      <div className='max-w-2xl w-full bg-white bg-opacity-10 backdrop-blur-md rounded-3xl shadow-2xl p-8 text-center'>
+        <Image
+          src='/favicon/android-chrome-512x512-removebg-preview.png'
+          alt='Chatbot Logo'
+          width={512}
+          height={512}
+          className='w-36 h-36 mx-auto mb-2'
+        />
+        <h1 className='font-inter font-light text-primary-50 text-5xl mb-4'>
+          Welcome
+        </h1>
+        <p className='mb-8 text-xl font-inter font-light text-primary-100'>
+          To a Personalized Chatbot!
+        </p>
+        <button
+          onClick={() => router.push('/chat')}
+          className='relative inline-flex items-center justify-center p-0.5 overflow-hidden text-lg font-medium text-primary-200 rounded-full group bg-gradient-to-br from-purple-600 to-blue-500 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800'
+        >
+          <span className='relative px-8 py-3 transition-all ease-in duration-200 bg-white dark:bg-primary-400 rounded-full group-hover:bg-opacity-0'>
+            Get Started
+          </span>
+        </button>
+
+        <footer className='mt-12 text-primary-50 text-sm space-y-2'>
+          <p>
+            © {new Date().getFullYear()} By{' '}
+            <ArrowLink
+              as={UnstyledLink}
+              href='https://www.linkedin.com/in/andrewdean-'
+              className='text-primary-50 hover:text-white inline-flex items-center'
+            >
+              Andrew Dean
             </ArrowLink>
           </p>
-
-          <ButtonLink className='mt-6' href='/components' variant='light'>
-            See all components
-          </ButtonLink>
-
-          <UnstyledLink
-            href='https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Ftheodorusclarence%2Fts-nextjs-tailwind-starter'
-            className='mt-4'
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              width='92'
-              height='32'
-              src='https://vercel.com/button'
-              alt='Deploy with Vercel'
-            />
-          </UnstyledLink>
-
-          <footer className='absolute bottom-2 text-gray-700'>
-            © {new Date().getFullYear()} By{' '}
-            <UnderlineLink href='https://theodorusclarence.com?ref=tsnextstarter'>
-              Theodorus Clarence
-            </UnderlineLink>
-          </footer>
-        </div>
-      </section>
-    </main>
+          <p>
+            <ArrowLink
+              as={UnstyledLink}
+              href='https://github.com/theodorusclarence/ts-nextjs-tailwind-starter'
+              className='text-primary-50 hover:text-white inline-flex items-center'
+            >
+              Credit to Theodorus Clarence for the starter code
+            </ArrowLink>
+          </p>
+        </footer>
+      </div>
+    </section>
   );
 }
