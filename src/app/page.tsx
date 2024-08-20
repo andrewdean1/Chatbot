@@ -50,7 +50,7 @@ export default function HomePage() {
             © {new Date().getFullYear()} By{' '}
             <ArrowLink
               as={UnstyledLink}
-              href='https://www.linkedin.com/in/andrewdean-'
+              href='https://github.com/andrewdean1/Chatbot'
               className='text-primary-50 hover:text-white inline-flex items-center'
             >
               Andrew Dean
